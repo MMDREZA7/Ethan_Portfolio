@@ -6,10 +6,6 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <meta
-      name="description"
-      content="Start your development with JohnDoe landing page."
-    />
     <title>Ethan | Front-end Developer</title>
     <meta
       name="description"
@@ -21,7 +17,7 @@
     />
     <meta name="author" content="Ethan" />
     <meta name="author" content="Devcrud" />
-    <title>Ethan Potfolio</title>
+
     <!-- font icons -->
     <link
       rel="stylesheet"
@@ -30,14 +26,185 @@
     <!-- Bootstrap + JohnDoe main styles -->
     <link rel="stylesheet" href="assets/css/johndoe.css" />
 
-    <!-- Tailwind -->
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
+
+    <!-- Custom Styles for Resume Viewer & Portfolio Cards -->
+    <style>
+      .resume-pdf-card {
+        background: #ffffff;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        margin-top: 2.5rem;
+      }
+
+      .resume-pdf-header {
+        background: #212529;
+        color: #ffffff;
+        padding: 16px 24px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .resume-pdf-header h5 {
+        margin: 0;
+        font-size: 1.05rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .resume-pdf-actions {
+        display: flex;
+        gap: 10px;
+      }
+
+      .resume-pdf-frame {
+        width: 100%;
+        height: 750px;
+        border: none;
+        display: block;
+        background: #f4f5f7;
+      }
+
+      /* Portfolio Section */
+      .portfolio-filter-btns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 2rem;
+      }
+
+      .portfolio-filter-btns .btn.active {
+        background-color: #f85c70;
+        border-color: #f85c70;
+        color: #fff;
+      }
+
+      .project-card {
+        background: #ffffff;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.07);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+      }
+
+      .project-thumb-wrap {
+        position: relative;
+        height: 200px;
+        overflow: hidden;
+        background: linear-gradient(135deg, #1f242d 0%, #343a40 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .project-thumb-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .project-fallback-banner {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        padding: 16px;
+        text-align: center;
+      }
+
+      .project-fallback-banner i {
+        font-size: 2.3rem;
+        margin-bottom: 10px;
+        color: #f85c70;
+      }
+
+      .project-fallback-banner span {
+        font-size: 0.9rem;
+        letter-spacing: 0.4px;
+        opacity: 0.9;
+      }
+
+      .project-badge {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: rgba(33, 37, 41, 0.88);
+        color: #ffffff;
+        font-size: 0.75rem;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-weight: 500;
+      }
+
+      .project-card-body {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+
+      .project-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #212529;
+        margin-bottom: 8px;
+      }
+
+      .project-desc {
+        font-size: 0.9rem;
+        color: #6c757d;
+        line-height: 1.55;
+        margin-bottom: 16px;
+        flex: 1;
+      }
+
+      .project-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding-top: 12px;
+        border-top: 1px solid #f1f3f5;
+      }
+
+      @media (max-width: 768px) {
+        .resume-pdf-frame {
+          height: 480px;
+        }
+        .resume-pdf-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
   </head>
   <body data-spy="scroll" data-target="." data-offset="40" id="home">
-    <!-- <a href="components.html" class="btnnavbar btn-primary btn-component" data-spy="affix" data-offset-top="600"><i class="ti-shift-left-alt"></i> Components</a> -->
     <header class="header">
       <div class="container">
         <ul class="social-icons pt-3">
@@ -72,11 +239,28 @@
         <div class="header-content">
           <h4 class="header-subtitle">Hello, I am</h4>
           <h1 class="header-title">ETHAN</h1>
-          <h6 class="header-mono">Frond end Designer | Developer | Graphist</h6>
-          <!-- <button class="btn btn-primary btn-rounded"><i class="ti-printer pr-2"></i>Print Resume</button> -->
+          <h6 class="header-mono">Front end Designer | Developer | Graphist</h6>
+          <div class="mt-4">
+            <a
+              href="./assets/MyResume.pdf"
+              download="Ethan-Resume.pdf"
+              class="btn btn-primary btn-rounded mr-2"
+            >
+              <i class="ti-download pr-2"></i>Download Resume
+            </a>
+            <button
+              type="button"
+              class="btn btn-outline-light btn-rounded"
+              data-toggle="modal"
+              data-target="#resumeModal"
+            >
+              <i class="ti-eye pr-2"></i>View PDF
+            </button>
+          </div>
         </div>
       </div>
     </header>
+
     <nav
       class="navbar sticky-top navbar-expand-lg navbar-light bg-white"
       data-spy="affix"
@@ -126,9 +310,9 @@
             <li class="nav-item">
               <a href="#portfolio" class="nav-link">Portfolio</a>
             </li>
-            <!-- <li class="nav-item">
-                        <a href="#blog" class="nav-link">Blog</a>
-                    </li> -->
+            <li class="nav-item">
+              <a href="#service" class="nav-link">Services</a>
+            </li>
             <li class="nav-item last-item">
               <a href="#contact" class="nav-link">Contact</a>
             </li>
@@ -136,6 +320,7 @@
         </div>
       </div>
     </nav>
+
     <div class="container-fluid">
       <div id="about" class="row about-section">
         <div class="col-lg-4 about-card">
@@ -152,7 +337,23 @@
             application development, and I’ve also worked with photo and video
             editing.
           </p>
-          <!-- <button class="btn btn-outline-danger"><i class="icon-down-circled2 "></i>Download My CV</button> -->
+          <div class="mt-4">
+            <a
+              href="./assets/MyResume.pdf"
+              download="Ethan-Resume.pdf"
+              class="btn btn-outline-danger mr-2 mb-2"
+            >
+              <i class="ti-download pr-1"></i> Download My CV
+            </a>
+            <button
+              type="button"
+              class="btn btn-danger mb-2"
+              data-toggle="modal"
+              data-target="#resumeModal"
+            >
+              <i class="ti-file pr-1"></i> Preview CV
+            </button>
+          </div>
         </div>
         <div class="col-lg-4 about-card">
           <h3 class="font-weight-light">Personal Info</h3>
@@ -162,14 +363,9 @@
             <li><span>Email</span> : mheidari831003@gmail.com</li>
             <li><span>Phone</span> : + (98) 992-85-7419</li>
             <li><span>Telegram</span> : MR_H_DV</li>
-            <li><span>linkdin</span> : ahtan-h</li>
-            <!-- <li><span>Skype</span> : John_Doe </li> -->
-            <!-- <li><span>Address</span> :  12345 Fake ST NoWhere AB Country.</li> -->
+            <li><span>Linkedin</span> : ahtan-h</li>
           </ul>
           <ul class="social-icons pt-3">
-            <!-- <li class="social-item"><a class="social-link" href="#"><i class="ti-facebook" aria-hidden="true"></i></a></li> -->
-            <!-- <li class="social-item"><a class="social-link" href="#"><i class="ti-twitter" aria-hidden="true"></i></a></li> -->
-            <!-- <li class="social-item"><a class="social-link" href="#"><i class="ti-google" aria-hidden="true"></i></a></li> -->
             <li class="social-item">
               <a
                 class="social-link"
@@ -255,10 +451,6 @@
                   photos and in Premiere: Edit or Create Videos for youtube and
                   video games
                 </p>
-
-                <!-- <h6 class="title text-danger">2015 - 2016</h6>
-                            <P>UX Designer</P>
-                            <P class="subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum recusandae, cupiditate ullam dolor ratione repellendus.aliquid repudiandae saepe!.</P> -->
               </div>
             </div>
           </div>
@@ -309,7 +501,7 @@
                     class="progress-bar bg-danger"
                     role="progressbar"
                     style="width: 90%"
-                    aria-valuenow="25"
+                    aria-valuenow="90"
                     aria-valuemin="0"
                     aria-valuemax="100"
                   ></div>
@@ -320,7 +512,7 @@
                     class="progress-bar bg-danger"
                     role="progressbar"
                     style="width: 95%"
-                    aria-valuenow="25"
+                    aria-valuenow="95"
                     aria-valuemin="0"
                     aria-valuemax="100"
                   ></div>
@@ -331,7 +523,7 @@
                     class="progress-bar bg-danger"
                     role="progressbar"
                     style="width: 60%"
-                    aria-valuenow="25"
+                    aria-valuenow="60"
                     aria-valuemin="0"
                     aria-valuemax="100"
                   ></div>
@@ -342,7 +534,7 @@
                     class="progress-bar bg-danger"
                     role="progressbar"
                     style="width: 90%"
-                    aria-valuenow="25"
+                    aria-valuenow="90"
                     aria-valuemin="0"
                     aria-valuemax="100"
                   ></div>
@@ -385,7 +577,7 @@
                     class="progress-bar bg-danger"
                     role="progressbar"
                     style="width: 70%"
-                    aria-valuenow="25"
+                    aria-valuenow="70"
                     aria-valuemin="0"
                     aria-valuemax="100"
                   ></div>
@@ -396,7 +588,7 @@
                     class="progress-bar bg-danger"
                     role="progressbar"
                     style="width: 100%"
-                    aria-valuenow="25"
+                    aria-valuenow="100"
                     aria-valuemin="0"
                     aria-valuemax="100"
                   ></div>
@@ -405,58 +597,316 @@
             </div>
           </div>
         </div>
+
+        <!-- Embedded PDF Resume Viewer -->
+        <div class="resume-pdf-card">
+          <div class="resume-pdf-header">
+            <h5>
+              <i class="fa-regular fa-file-pdf text-danger"></i>
+              <span>Official Resume (PDF Preview)</span>
+            </h5>
+            <div class="resume-pdf-actions">
+              <a
+                href="./assets/MyResume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-sm btn-outline-light"
+              >
+                <i class="ti-new-window pr-1"></i> Full Screen
+              </a>
+              <a
+                href="./assets/MyResume.pdf"
+                download="Ethan-Resume.pdf"
+                class="btn btn-sm btn-danger"
+              >
+                <i class="ti-download pr-1"></i> Download PDF
+              </a>
+            </div>
+          </div>
+          <iframe
+            src="./assets/MyResume.pdf#toolbar=0&navpanes=0&view=FitH"
+            title="Ethan Resume PDF"
+            class="resume-pdf-frame"
+            loading="lazy"
+          ></iframe>
+        </div>
       </div>
     </section>
 
-    <section class="section bg-dark text-center header">
-      <!-- <div class="container">
-            <div class="row text-center">
-                <div class="col-md-6 col-lg-3">
-                    <div class="row ">
-                        <div class="col-5 text-right text-light border-right py-3">
-                            <div class="m-auto"><i class="ti-alarm-clock icon-xl"></i></div>
-                        </div>
-                        <div class="col-7 text-left py-3">
-                            <h1 class="text-danger font-weight-bold font40">500</h1>
-                            <p class="text-light mb-1">Hours Worked</p>
-                        </div>
-                    </div>
+    <!-- Portfolio Section -->
+    <section class="section bg-custom-gray" id="portfolio">
+      <div class="container">
+        <h2 class="mb-4"><span class="text-danger">My</span> Portfolio</h2>
+
+        <!-- Filter Buttons -->
+        <div class="portfolio-filter-btns" id="portfolioFilters">
+          <button
+            type="button"
+            class="btn btn-sm btn-outline-danger active"
+            data-filter="all"
+          >
+            All Projects (6)
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm btn-outline-danger"
+            data-filter="flutter"
+          >
+            Flutter / Mobile
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm btn-outline-danger"
+            data-filter="react"
+          >
+            React / Web
+          </button>
+        </div>
+
+        <div class="row" id="portfolioGrid">
+          <!-- 1. only_faleh_hafez -->
+          <div
+            class="col-md-6 col-lg-4 mb-4 portfolio-item"
+            data-category="flutter"
+          >
+            <div class="project-card">
+              <div class="project-thumb-wrap">
+                <img
+                  src="assets/imgs/projects/only_faleh_hafez.jpg"
+                  alt="only_faleh_hafez screenshot"
+                  onerror="
+                    showFallbackBanner(this, 'fa-book-open', 'only_faleh_hafez')
+                  "
+                />
+                <span class="project-badge">Flutter</span>
+              </div>
+              <div class="project-card-body">
+                <h5 class="project-title">only_faleh_hafez</h5>
+                <p class="project-desc">
+                  Persian Hafez divination and poetry app featuring omen reading
+                  and ghazal search experience.
+                </p>
+                <div class="project-footer">
+                  <span class="text-muted small">
+                    <i class="fa-brands fa-github mr-1"></i>MMDREZA7
+                  </span>
+                  <a
+                    href="https://github.com/MMDREZA7/only_faleh_hafez"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-sm btn-outline-danger"
+                  >
+                    View Repo <i class="ti-arrow-top-right ml-1"></i>
+                  </a>
                 </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="row">
-                        <div class="col-5 text-right text-light border-right py-3">
-                            <div class="m-auto"><i class="ti-layers-alt icon-xl"></i></div>
-                        </div>
-                        <div class="col-7 text-left py-3">
-                            <h1 class="text-danger font-weight-bold font40">50K</h1>
-                            <p class="text-light mb-1">Project Finished</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="row">
-                        <div class="col-5 text-right text-light border-right py-3">
-                            <div class="m-auto"><i class="ti-face-smile icon-xl"></i></div>
-                        </div>
-                        <div class="col-7 text-left py-3">
-                            <h1 class="text-danger font-weight-bold font40">200K</h1>
-                            <p class="text-light mb-1">Happy Clients</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="row">
-                        <div class="col-5 text-right text-light border-right py-3">
-                            <div class="m-auto"><i class="ti-heart-broken icon-xl"></i></div>
-                        </div>
-                        <div class="col-7 text-left py-3">
-                            <h1 class="text-danger font-weight-bold font40">2k</h1>
-                            <p class="text-light mb-1">Coffee Drinked</p>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
-        </div> -->
+          </div>
+
+          <!-- 2. expense_tracker -->
+          <div
+            class="col-md-6 col-lg-4 mb-4 portfolio-item"
+            data-category="react"
+          >
+            <div class="project-card">
+              <div class="project-thumb-wrap">
+                <img
+                  src="assets/imgs/projects/expense_tracker.jpg"
+                  alt="expense_tracker screenshot"
+                  onerror="
+                    showFallbackBanner(this, 'fa-wallet', 'expense_tracker')
+                  "
+                />
+                <span class="project-badge">Flutter</span>
+              </div>
+              <div class="project-card-body">
+                <h5 class="project-title">expense_tracker</h5>
+                <p class="project-desc">
+                  Personal finance and expense tracking application for logging
+                  transactions and monitoring spending.
+                </p>
+                <div class="project-footer">
+                  <span class="text-muted small">
+                    <i class="fa-brands fa-github mr-1"></i>MMDREZA7
+                  </span>
+                  <a
+                    href="https://github.com/MMDREZA7/expense_tracker"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-sm btn-outline-danger"
+                  >
+                    View Repo <i class="ti-arrow-top-right ml-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. tennis_match_calculator -->
+          <div
+            class="col-md-6 col-lg-4 mb-4 portfolio-item"
+            data-category="flutter"
+          >
+            <div class="project-card">
+              <div class="project-thumb-wrap">
+                <img
+                  src="assets/imgs/projects/tennis_calculator.jpg"
+                  alt="tennis_match_calculator screenshot"
+                  onerror="
+                    showFallbackBanner(
+                      this,
+                      'fa-table-tennis-paddle-ball',
+                      'tennis_match_calculator',
+                    )
+                  "
+                />
+                <span class="project-badge">Flutter</span>
+              </div>
+              <div class="project-card-body">
+                <h5 class="project-title">tennis_match_calculator</h5>
+                <p class="project-desc">
+                  Match and set score tracking calculator designed for racket
+                  sports and multi-set gameplay.
+                </p>
+                <div class="project-footer">
+                  <span class="text-muted small">
+                    <i class="fa-brands fa-github mr-1"></i>MMDREZA7
+                  </span>
+                  <a
+                    href="https://github.com/MMDREZA7/tennis_match_calculator"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-sm btn-outline-danger"
+                  >
+                    View Repo <i class="ti-arrow-top-right ml-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. habit_tracker -->
+          <div
+            class="col-md-6 col-lg-4 mb-4 portfolio-item"
+            data-category="flutter"
+          >
+            <div class="project-card">
+              <div class="project-thumb-wrap">
+                <img
+                  src="assets/imgs/projects/habit_tracker.jpg"
+                  alt="habit_tracker screenshot"
+                  onerror="
+                    showFallbackBanner(this, 'fa-check-double', 'habit_tracker')
+                  "
+                />
+                <span class="project-badge">Flutter</span>
+              </div>
+              <div class="project-card-body">
+                <h5 class="project-title">habit_tracker</h5>
+                <p class="project-desc">
+                  Daily habit tracker built to help users build consistency,
+                  track streaks, and manage routines.
+                </p>
+                <div class="project-footer">
+                  <span class="text-muted small">
+                    <i class="fa-brands fa-github mr-1"></i>MMDREZA7
+                  </span>
+                  <a
+                    href="https://github.com/MMDREZA7/habit_tracker"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-sm btn-outline-danger"
+                  >
+                    View Repo <i class="ti-arrow-top-right ml-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Task Tracker -->
+          <div
+            class="col-md-6 col-lg-4 mb-4 portfolio-item"
+            data-category="react"
+          >
+            <div class="project-card">
+              <div class="project-thumb-wrap">
+                <img
+                  src="assets/imgs/projects/task_tracker.jpg"
+                  alt="Task Tracker screenshot"
+                  onerror="
+                    showFallbackBanner(this, 'fa-list-check', 'Task Tracker')
+                  "
+                />
+                <span class="project-badge">React</span>
+              </div>
+              <div class="project-card-body">
+                <h5 class="project-title">Task Tracker</h5>
+                <p class="project-desc">
+                  Interactive task management web application built with React
+                  for adding, organizing, and completing daily tasks.
+                </p>
+                <div class="project-footer">
+                  <span class="text-muted small">
+                    <i class="fa-brands fa-github mr-1"></i>MMDREZA7
+                  </span>
+                  <a
+                    href="https://github.com/MMDREZA7/Task Tracker"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-sm btn-outline-danger"
+                  >
+                    View Repo <i class="ti-arrow-top-right ml-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Ping_Pong_League_Calculator -->
+          <div
+            class="col-md-6 col-lg-4 mb-4 portfolio-item"
+            data-category="flutter"
+          >
+            <div class="project-card">
+              <div class="project-thumb-wrap">
+                <img
+                  src="assets/imgs/projects/ping_pong_league_calculator.jpg"
+                  alt="Ping_Pong_League_Calculator screenshot"
+                  onerror="
+                    showFallbackBanner(
+                      this,
+                      'fa-trophy',
+                      'Ping_Pong_League_Calculator',
+                    )
+                  "
+                />
+                <span class="project-badge">League / Sports</span>
+              </div>
+              <div class="project-card-body">
+                <h5 class="project-title">Ping_Pong_League_Calculator</h5>
+                <p class="project-desc">
+                  Table tennis league calculator and match tracker for managing
+                  set scores, deuce outcomes, and standings.
+                </p>
+                <div class="project-footer">
+                  <span class="text-muted small">
+                    <i class="fa-brands fa-github mr-1"></i>MMDREZA7
+                  </span>
+                  <a
+                    href="https://github.com/MMDREZA7/Ping_Pong_League_Calculator"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-sm btn-outline-danger"
+                  >
+                    View Repo <i class="ti-arrow-top-right ml-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="section" id="service">
@@ -521,438 +971,18 @@
               </div>
             </div>
           </div>
-          <!-- <div class="col-md-4 col-sm-6">
-                    <div class="card mb-5">
-                       <div class="card-header has-icon">
-                            <i class="ti-image text-danger" aria-hidden="true"></i>
-                        </div>
-                        <div class="card-body px-4 py-3">
-                            <h5 class="mb-3 card-title text-dark">image Editing</h5>
-                            <P class="subtitle">I can create posters, banners, business cards, YouTube thumbnails, and more with Photoshop in the best way possible.</P>
-                        </div>
-                    </div>
-                </div> -->
-          <!-- <div class="col-md-4 col-sm-6">
-                    <div class="card mb-5">
-                       <div class="card-header has-icon">
-                            <i class="ti-support text-danger" aria-hidden="true"></i>
-                        </div>
-                        <div class="card-body px-4 py-3">
-                            <h5 class="mb-3 card-title text-dark">Veritatis</h5>
-                            <P class="subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam commodi provident, dolores reiciendis enim pariatur error optio, tempora ex, nihil nesciunt! In praesentium sunt commodi, unde ipsam ex veritatis laboriosam dolor asperiores suscipit blanditiis, dignissimos quos nesciunt nulla aperiam officia.</P>
-                        </div>
-                    </div>
-                </div> -->
         </div>
       </div>
     </section>
 
-    <!-- <section class="section bg-custom-gray" id="price">
-        <div class="container">
-            <h1 class="mb-5"><span class="text-danger">Packs</span> Pricing</h1>
-            <div class="row align-items-center">
-                <div class="col-md-6 col-lg-3">
-                    <div class="price-card text-center mb-4">
-                        <h3 class="price-card-title">Free</h3>
-                        <div class="price-card-cost">
-                            <sup class="ti-money"></sup>
-                            <span class="num">0</span>
-                            <span class="date">MO</span>
-                        </div>
-                        <ul class="list">
-                            <li class="list-item">5 <span class="text-muted">Project</span></li>
-                            <li class="list-item">1GB <span class="text-muted">Storage</span></li>
-                            <li class="list-item"><span class="text-muted">No Domain</span></li>
-                            <li class="list-item">1 <span class="text-muted">User</span></li>
-                        </ul>
-                        <button class="btn btn-primary btn-rounded w-lg">Subscribe</button>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="price-card text-center mb-4">
-                        <h3 class="price-card-title">Basic</h3>
-                        <div class="price-card-cost">
-                            <sup class="ti-money"></sup>
-                            <span class="num">10</span>
-                            <span class="date">MO</span>
-                        </div>
-                        <ul class="list">
-                            <li class="list-item">50 <span class="text-muted">Project</span></li>
-                            <li class="list-item">10GB <span class="text-muted">Storage</span></li>
-                            <li class="list-item">1<span class="text-muted">Domain</span></li>
-                            <li class="list-item">5 <span class="text-muted">User</span></li>
-                        </ul>
-                        <button class="btn btn-primary btn-rounded w-lg">Subscribe</button>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="price-card text-center price-card-requried mb-4">
-                        <h3 class="price-card-title">Exclusive</h3>
-                        <div class="price-card-cost">
-                            <sup class="ti-money"></sup>
-                            <span class="num">25</span>
-                            <span class="date">MO</span>
-                        </div>
-                        <ul class="list">
-                            <li class="list-item">150 <span class="text-muted">Project</span></li>
-                            <li class="list-item">15GB <span class="text-muted">Storage</span></li>
-                            <li class="list-item">5<span class="text-muted"> Domain</span></li>
-                            <li class="list-item">15<span class="text-muted">User</span></li>
-                        </ul>
-                        <button class="btn btn-primary btn-rounded w-lg">Subscribe</button>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="price-card text-center mb-4">
-                        <h3 class="price-card-title">Pro</h3>
-                        <div class="price-card-cost">
-                            <sup class="ti-money"></sup>
-                            <span class="num">99</span>
-                            <span class="date">MO</span>
-                        </div>
-                        <ul class="list">
-                            <li class="list-item">500 <span class="text-muted">Project</span></li>
-                            <li class="list-item">1000GB <span class="text-muted">Storage</span></li>
-                            <li class="list-item">10<span class="text-muted"> Domain</span></li>
-                            <li class="list-item">Unlimite<span class="text-muted">User</span></li>
-                        </ul>
-                        <button class="btn btn-primary btn-rounded w-lg">Subscribe</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
     <section class="section bg-dark py-5">
       <div class="container text-center">
         <h2 class="text-light mb-5 font-weight-normal">
           I Am Available For FreeLance And Hiring
         </h2>
-        <button class="btn bg-primary w-lg">Hire me</button>
+        <a href="#contact" class="btn bg-primary w-lg">Hire me</a>
       </div>
     </section>
-
-    <!-- Portfolio Section -->
-    <section class="bg-dark"></section>
-    <!-- <section class="section bg-custom-gray" id="portfolio">
-      <div class="container">
-        <h1 class="mb-5"><span class="text-danger">My</span> Portfolio</h1>
-        <div class="portfolio">
-          <div class="filters">
-            <a href="#" data-filter=".new" class="active"> New </a>
-            <a href="#" data-filter=".advertising"> Advertising </a>
-            <a href="#" data-filter=".branding"> Branding </a>
-            <a href="#" data-filter=".web"> Web </a>
-          </div>
-          <div class="portfolio-container">
-            <div class="col-md-6 col-lg-4 web new">
-              <div class="portfolio-item">
-                <img
-                  src="assets/imgs/web-1.jpg"
-                  class="img-fluid"
-                  alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates"
-                />
-                <div class="content-holder">
-                  <a class="img-popup" href="assets/imgs/web-1.jpg"></a>
-                  <div class="text-holder">
-                    <h6 class="title">WEB</h6>
-                    <p class="subtitle">
-                      Expedita corporis doloremque velit in totam!
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4 web new">
-              <div class="portfolio-item">
-                <img
-                  src="assets/imgs/web-2.jpg"
-                  class="img-fluid"
-                  alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates"
-                />
-                <div class="content-holder">
-                  <a class="img-popup" href="assets/imgs/web-2.jpg"></a>
-                  <div class="text-holder">
-                    <h6 class="title">WEB</h6>
-                    <p class="subtitle">
-                      Expedita corporis doloremque velit in totam!
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4 advertising new">
-              <div class="portfolio-item">
-                <img
-                  src="assets/imgs/advertising-2.jpg"
-                  class="img-fluid"
-                  alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates"
-                />
-                <div class="content-holder">
-                  <a class="img-popup" href="assets/imgs/advertising-2.jpg"></a>
-                  <div class="text-holder">
-                    <h6 class="title">ADVERSTISING</h6>
-                    <p class="subtitle">
-                      Expedita corporis doloremque velit in totam!
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4 web">
-              <div class="portfolio-item">
-                <img
-                  src="assets/imgs/web-4.jpg"
-                  class="img-fluid"
-                  alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates"
-                />
-                <div class="content-holder">
-                  <a class="img-popup" href="assets/imgs/web-4.jpg"></a>
-                  <div class="text-holder">
-                    <h6 class="title">WEB</h6>
-                    <p class="subtitle">
-                      Expedita corporis doloremque velit in totam!
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 advertising">
-              <div class="portfolio-item">
-                <img
-                  src="assets/imgs/advertising-1.jpg"
-                  class="img-fluid"
-                  alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates"
-                />
-                <div class="content-holder">
-                  <a class="img-popup" href="assets/imgs/advertising-1.jpg"></a>
-                  <div class="text-holder">
-                    <h6 class="title">ADVERSITING</h6>
-                    <p class="subtitle">
-                      Expedita corporis doloremque velit in totam!
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4 web new">
-              <div class="portfolio-item">
-                <img
-                  src="assets/imgs/web-3.jpg"
-                  class="img-fluid"
-                  alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates"
-                />
-                <div class="content-holder">
-                  <a class="img-popup" href="assets/imgs/web-3.jpg"></a>
-                  <div class="text-holder">
-                    <h6 class="title">WEB</h6>
-                    <p class="subtitle">
-                      Expedita corporis doloremque velit in totam!
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4 advertising new">
-              <div class="portfolio-item">
-                <img
-                  src="assets/imgs/advertising-3.jpg"
-                  class="img-fluid"
-                  alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates"
-                />
-                <div class="content-holder">
-                  <a class="img-popup" href="assets/imgs/advertising-3.jpg"></a>
-                  <div class="text-holder">
-                    <h6 class="title">ADVERSITING</h6>
-                    <p class="subtitle">
-                      Expedita corporis doloremque velit in totam!
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4 advertising new">
-              <div class="portfolio-item">
-                <img
-                  src="assets/imgs/advertising-4.jpg"
-                  class="img-fluid"
-                  alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates"
-                />
-                <div class="content-holder">
-                  <a class="img-popup" href="assets/imgs/advertising-4.jpg"></a>
-                  <div class="text-holder">
-                    <h6 class="title">ADVERTISING</h6>
-                    <p class="subtitle">
-                      Expedita corporis doloremque velit in totam!
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4 branding new">
-              <div class="portfolio-item">
-                <img
-                  src="assets/imgs/branding-1.jpg"
-                  class="img-fluid"
-                  alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates"
-                />
-                <div class="content-holder">
-                  <a class="img-popup" href="assets/imgs/branding-1.jpg"></a>
-                  <div class="text-holder">
-                    <h6 class="title">BRANDING</h6>
-                    <p class="subtitle">
-                      Expedita corporis doloremque velit in totam!
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4 branding">
-              <div class="portfolio-item">
-                <img
-                  src="assets/imgs/branding-2.jpg"
-                  class="img-fluid"
-                  alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates"
-                />
-                <div class="content-holder">
-                  <a class="img-popup" href="assets/imgs/branding-2.jpg"></a>
-                  <div class="text-holder">
-                    <h6 class="title">BRANDING</h6>
-                    <p class="subtitle">
-                      Expedita corporis doloremque velit in totam!
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4 branding new">
-              <div class="portfolio-item">
-                <img
-                  src="assets/imgs/branding-3.jpg"
-                  class="img-fluid"
-                  alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates"
-                />
-                <div class="content-holder">
-                  <a class="img-popup" href="assets/imgs/branding-3.jpg"></a>
-                  <div class="text-holder">
-                    <h6 class="title">BRANDING</h6>
-                    <p class="subtitle">
-                      Expedita corporis doloremque velit in totam!
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4 branding">
-              <div class="portfolio-item">
-                <img
-                  src="assets/imgs/branding-4.jpg"
-                  class="img-fluid"
-                  alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates"
-                />
-                <div class="content-holder">
-                  <a class="img-popup" href="assets/imgs/branding-4.jpg"></a>
-                  <div class="text-holder">
-                    <h6 class="title">BRANDING</h6>
-                    <p class="subtitle">
-                      Expedita corporis doloremque velit in totam!
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4 branding">
-              <div class="portfolio-item">
-                <img
-                  src="assets/imgs/branding-5.jpg"
-                  class="img-fluid"
-                  alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates"
-                />
-                <div class="content-holder">
-                  <a class="img-popup" href="assets/imgs/branding-5.jpg"></a>
-                  <div class="text-holder">
-                    <h6 class="title">BRANDING</h6>
-                    <p class="subtitle">
-                      Expedita corporis doloremque velit in totam!
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-    <!-- End of portfolio section -->
-
-    <!-- <section class="section" id="blog">
-        <div class="container">
-            <h2 class="mb-5">Latest <span class="text-danger">News</span></h2>
-            <div class="row">
-                <div class="blog-card">
-                    <div class="img-holder">
-                        <img src="assets/imgs/blog1.jpg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                    </div>
-                    <div class="content-holder">
-                        <h6 class="title">Consectetur adipisicing elit</h6>
-
-                        <p class="post-details">
-                            <a href="#">By: Admin</a>
-                            <a href="#"><i class="ti-heart text-danger"></i> 234</a>
-                            <a href="#"><i class="ti-comment"></i> 123</a>
-                        </p>
-                        
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet nesciunt qui sit velit delectus voluptates, repellat ipsum culpa id deleniti. Rerum debitis facilis accusantium neque numquam mollitia modi quasi distinctio.</p>
-
-                        <p><b>Necessitatibus nihil impedit! Ex nisi eveniet, dolor aliquid consequuntur repudiandae.</b></p>
-                        <p>Magnam in repellat enim harum omnis aperiam! Explicabo illo, commodi, dolor blanditiis cupiditate harum nisi vero accusamus laudantium voluptatibus dolores quae obcaecati.</p>
-
-                        <a href="#" class="read-more">Read more <i class="ti-angle-double-right"></i></a>
-                    </div>
-                </div><!-- end of blog wrapper -->
-
-    <!-- blog-card -->
-    <!-- <div class="blog-card">
-                    <div class="img-holder">
-                        <img src="assets/imgs/blog2.jpg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                    </div>
-                    <div class="content-holder">
-                        <h6 class="title">Explicabo illo</h6>
-
-                        <p class="post-details">
-                            <a href="#">By: Admin</a>
-                            <a href="#"><i class="ti-heart text-danger"></i> 456</a>
-                            <a href="#"><i class="ti-comment"></i> 264</a>
-                        </p>
-                        
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit excepturi laborum enim, vitae ipsam atque eum, ad iusto consequuntur voluptas, esse doloribus. Perferendis porro quisquam vitae exercitationem aliquid, minus eos laborum repudiandae, cumque debitis iusto omnis praesentium? Laborum placeat sit adipisci illum tempore maxime, esse qui quae? Molestias excepturi corporis similique doloribus. Esse vitae earum architecto nulla non dolores illum at perspiciatis quod, et deleniti cupiditate reiciendis harum facere, delectus eum commodi soluta distinctio sit repudiandae possimus sunt. Ipsum, rem.</p>
-
-                        <a href="#" class="read-more">Read more <i class="ti-angle-double-right"></i></a>
-                    </div>
-                </div>end of blog wrapper -->
-    <!-- blog-card -->
-    <!-- <div class="blog-card">
-                    <div class="img-holder">
-                        <img src="assets/imgs/blog3.jpg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                    </div>
-                    <div class="content-holder">
-                        <h4 class="title">Porro Quisqua</h4>
-
-                        <p class="post-details">
-                            <a href="#">By: Admin</a>
-                            <a href="#"><i class="ti-heart text-danger"></i> 431</a>
-                            <a href="#"><i class="ti-comment"></i> 312</a>
-                        </p>
-                        
-                        <p> consectetur adipisicing elit. Impedit excepturi laborum enim, vitae ipsam atque eum, ad iusto consequuntur voluptas, esse doloribus. Perferendis porro quisquam vitae exercitationem aliquid, minus eos laborum repudiandae, cumque debitis iusto omnis praesentium? Laborum placeat sit adipisci illum tempore maxime, esse qui quae? Molestias excepturi corporis similique doloribus. Esse vitae earum architecto nulla non dolores illum at perspiciatis quod, et deleniti cupiditate reiciendis harum facere, delectus eum commodi soluta distinctio sit repudiandae possimus sunt. Ipsum, rem.</p>
-
-                        <a href="#" class="read-more">Read more <i class="ti-angle-double-right"></i></a>
-                    </div>
-                </div>end of blog wrapper -->
-
-    <!-- </div>
-        </div>
-    </section> -->
 
     <div class="section contact" id="contact">
       <div id="map" class="map"></div>
@@ -961,10 +991,11 @@
           <div class="col-lg-8">
             <div class="contact-form-card">
               <h4 class="contact-title">Send a message</h4>
-              <form id="contact-form" onsubmit="sendEmail(event)">
+              <form id="contact-form">
                 <div class="form-group">
                   <input
                     id="user-name"
+                    name="from_name"
                     class="form-control"
                     type="text"
                     placeholder="Name *"
@@ -974,6 +1005,7 @@
                 <div class="form-group">
                   <input
                     id="user-email"
+                    name="from_email"
                     class="form-control"
                     type="email"
                     placeholder="Email *"
@@ -983,6 +1015,7 @@
                 <div class="form-group">
                   <textarea
                     id="user-message"
+                    name="message"
                     class="form-control"
                     placeholder="Message *"
                     rows="7"
@@ -990,22 +1023,53 @@
                   ></textarea>
                 </div>
                 <div class="form-group">
-                  <button type="submit" class="form-control btn btn-primary">
+                  <button
+                    type="submit"
+                    id="send-btn"
+                    class="form-control btn btn-primary"
+                  >
                     Send Message
                   </button>
                 </div>
+                <div
+                  id="form-status"
+                  class="alert d-none mt-3"
+                  role="alert"
+                ></div>
               </form>
             </div>
           </div>
           <div class="col-lg-4">
             <div class="contact-info-card">
               <h4 class="contact-title">Get in touch</h4>
-              <!-- Your contact information here -->
+              <div class="row mb-2">
+                <div class="col-1 pt-1 mr-1">
+                  <i class="ti-mobile icon-md"></i>
+                </div>
+                <div class="col-10">
+                  <h6 class="d-inline">
+                    Phone : <br />
+                    <span class="text-muted">+ (98) 992-85-7419</span>
+                  </h6>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <div class="col-1 pt-1 mr-1">
+                  <i class="ti-envelope icon-md"></i>
+                </div>
+                <div class="col-10">
+                  <h6 class="d-inline">
+                    Email :<br />
+                    <span class="text-muted">mheidari831003@gmail.com</span>
+                  </h6>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
     <footer class="footer py-3">
       <div class="container">
         <p
@@ -1021,36 +1085,169 @@
       </div>
     </footer>
 
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <!-- Fullscreen Resume Modal -->
+    <div
+      class="modal fade"
+      id="resumeModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="resumeModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+        <div
+          class="modal-content"
+          style="border-radius: 14px; overflow: hidden"
+        >
+          <div class="modal-header bg-dark text-white">
+            <h5 class="modal-title" id="resumeModalLabel">
+              <i class="fa-regular fa-file-pdf text-danger mr-2"></i>Ethan -
+              Curriculum Vitae
+            </h5>
+            <div>
+              <a
+                href="./assets/MyResume.pdf"
+                download="Ethan-Resume.pdf"
+                class="btn btn-sm btn-danger mr-2"
+              >
+                <i class="ti-download pr-1"></i> Download
+              </a>
+              <button
+                type="button"
+                class="close text-white"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+          <div class="modal-body p-0" style="background: #f4f5f7">
+            <iframe
+              src="./assets/MyResume.pdf#view=FitH"
+              title="Ethan Full Resume"
+              style="width: 100%; height: 82vh; border: none; display: block"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function showFallbackBanner(imgElement, iconClass, projectName) {
+        const parent = imgElement.parentElement;
+        if (!parent || parent.querySelector(".project-fallback-banner")) return;
+
+        imgElement.style.display = "none";
+
+        const banner = document.createElement("div");
+        banner.className = "project-fallback-banner";
+        banner.innerHTML = `
+          <i class="fa-solid ${iconClass}"></i>
+          <span>${projectName}</span>
+        `;
+        parent.insertBefore(banner, imgElement);
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterButtons = document.querySelectorAll(
+          "#portfolioFilters button",
+        );
+        const portfolioItems = document.querySelectorAll(
+          "#portfolioGrid .portfolio-item",
+        );
+
+        filterButtons.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            filterButtons.forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+
+            const filterValue = this.getAttribute("data-filter");
+
+            portfolioItems.forEach((item) => {
+              const category = item.getAttribute("data-category");
+              if (filterValue === "all" || category === filterValue) {
+                item.style.display = "";
+              } else {
+                item.style.display = "none";
+              }
+            });
+          });
+        });
+      });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
       (function () {
-        emailjs.init("DK3OV2UvmOFvHpaTz");
+        emailjs.init({
+          publicKey: "DK3OV2UvmOFvHpaTz",
+        });
       })();
 
-      function sendEmail(event) {
-        event.preventDefault();
+      document.addEventListener("DOMContentLoaded", function () {
+        const contactForm = document.getElementById("contact-form");
+        const sendBtn = document.getElementById("send-btn");
+        const statusBox = document.getElementById("form-status");
+        const recipientEmail = "mmdrezaheydary7@gmail.com";
 
-        var name = document.getElementById("user-name").value;
-        var email = document.getElementById("user-email").value;
-        var message = document.getElementById("user-message").value;
+        function showStatus(type, text) {
+          statusBox.className = `alert alert-${type} mt-3`;
+          statusBox.textContent = text;
+        }
 
-        var templateParams = {
-          from_name: name,
-          from_email: email,
-          message: message,
-        };
-
-        emailjs
-          .send("service_xtat7s8", "template_o56bprt", templateParams)
-          .then(
-            function (response) {
-              alert("Message sent successfully!", response);
-            },
-            function (error) {
-              alert("Failed to send message.", error);
-            },
+        function openGmailCompose(name, email, message) {
+          const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+          const body = encodeURIComponent(
+            `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
           );
-      }
+          const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+            recipientEmail,
+          )}&su=${subject}&body=${body}`;
+
+          window.open(gmailUrl, "_blank", "noopener,noreferrer");
+        }
+
+        contactForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const nameVal = document.getElementById("user-name").value.trim();
+          const emailVal = document.getElementById("user-email").value.trim();
+          const messageVal = document
+            .getElementById("user-message")
+            .value.trim();
+
+          const originalBtnText = sendBtn.textContent;
+          sendBtn.disabled = true;
+          sendBtn.textContent = "Sending...";
+          statusBox.classList.add("d-none");
+
+          const templateParams = {
+            from_name: nameVal,
+            from_email: emailVal,
+            message: messageVal,
+          };
+
+          emailjs
+            .send("service_xtat7s8", "template_o56bprt", templateParams)
+            .then(function () {
+              showStatus("success", "Your message has been sent successfully!");
+              contactForm.reset();
+            })
+            .catch(function (error) {
+              console.error("EmailJS Error:", error);
+              showStatus(
+                "warning",
+                "Direct send failed. Opening Gmail with your message ready to send...",
+              );
+              openGmailCompose(nameVal, emailVal, messageVal);
+            })
+            .finally(function () {
+              sendBtn.disabled = false;
+              sendBtn.textContent = originalBtnText;
+            });
+        });
+      });
     </script>
 
     <!-- core  -->
@@ -1063,7 +1260,7 @@
     <!-- Isotope  -->
     <script src="assets/vendors/isotope/isotope.pkgd.js"></script>
 
-    <!-- Google mpas -->
+    <!-- Google maps -->
     <script
       async
       defer
